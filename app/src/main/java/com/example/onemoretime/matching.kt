@@ -76,7 +76,8 @@ class matching : AppCompatActivity() {
 
         findViewById<Button>(R.id.exitGame).setOnClickListener {
             finish()
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, Results::class.java)
+            intent.putExtra("Score", points)
             startActivity(intent)
         }
 

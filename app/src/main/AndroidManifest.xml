@@ -16,8 +16,16 @@
         android:theme="@style/Theme.OneMoreTime"
         tools:targetApi="31">
         <activity
-            android:name=".matching"
+            android:name=".Results"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".matching"
+            android:exported="false"
+            android:screenOrientation="sensor">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
