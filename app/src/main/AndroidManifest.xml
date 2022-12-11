@@ -16,7 +16,7 @@
         android:theme="@style/Theme.OneMoreTime"
         tools:targetApi="31">
         <activity
-            android:name=".Game"
+            android:name=".testGame"
             android:parentActivityName=".MainActivity"
             android:exported="false">
             <meta-data

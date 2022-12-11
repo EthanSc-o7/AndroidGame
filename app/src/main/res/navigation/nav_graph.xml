@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.onemoretime.Game"
+        android:name="com.example.onemoretime.testGame"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/activity_game">
 

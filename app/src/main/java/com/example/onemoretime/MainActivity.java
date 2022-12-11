@@ -2,22 +2,16 @@ package com.example.onemoretime;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
 
-import java.io.IOException;
-
 public class MainActivity extends AppCompatActivity {
-
+    MediaPlayer music;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         configureNextButton();
 
-        MediaPlayer music = MediaPlayer.create(MainActivity.this, R.raw.music);
+        music = MediaPlayer.create(MainActivity.this, R.raw.music);
         music.setLooping(true);
         music.start();
         ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton);
@@ -44,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         toggle.setTextOff("Mute");
         toggle.setTextOn("Unmute");
         toggle.setChecked(true);
@@ -54,10 +49,27 @@ public class MainActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, Game.class));
+                startActivity(new Intent(MainActivity.this, testGame.class));
             }
         });
     }
+    @Override
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        outState.putInt("possition", music.getCurrentPosition());
+        music.pause();
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        int pos = savedInstanceState.getInt("possition");
+        music.seekTo(pos);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+
 }
 
 
