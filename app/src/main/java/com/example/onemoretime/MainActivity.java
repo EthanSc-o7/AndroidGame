@@ -17,15 +17,16 @@ import android.widget.ToggleButton;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-
+    MediaPlayer music;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         configureNextButton();
 
-        MediaPlayer music = MediaPlayer.create(MainActivity.this, R.raw.music);
+        music = MediaPlayer.create(MainActivity.this, R.raw.music);
         music.setLooping(true);
         music.start();
         ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton);
@@ -34,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
                 int length;
                 if (isChecked) {
                     music.pause();
+                    music.start();
                     length = music.getCurrentPosition();
                 } else {
-                    music.start();
+                    music.pause();
                     length = music.getCurrentPosition();
                 }
             }
@@ -56,6 +58,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        outState.putInt("possition", music.getCurrentPosition());
+        music.pause();
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        int pos = savedInstanceState.getInt("possition");
+        music.seekTo(pos);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+
+
+
 }
 
 

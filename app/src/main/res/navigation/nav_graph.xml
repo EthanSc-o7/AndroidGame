@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.onemoretime.FirstFragment"
+        android:name="com.example.onemoretime.MainActivity"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/activity_main">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/FirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.onemoretime.SecondFragment"
+        android:name="com.example.onemoretime.matching"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/activity_matching">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"

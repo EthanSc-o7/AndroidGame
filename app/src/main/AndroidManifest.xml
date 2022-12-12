@@ -17,6 +17,7 @@
         tools:targetApi="31">
         <activity
             android:name=".Results"
+            android:parentActivityName=".matching"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -24,6 +25,7 @@
         </activity>
         <activity
             android:name=".matching"
+            android:parentActivityName=".MainActivity"
             android:exported="false"
             android:screenOrientation="sensor">
             <meta-data
