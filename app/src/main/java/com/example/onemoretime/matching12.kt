@@ -113,6 +113,24 @@ class matching12 : AppCompatActivity() {
 
 
     }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("position", music.getCurrentPosition())
+        outState.putInt("score", points)
+        music.pause()
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        val pos = savedInstanceState.getInt("position")
+        music.seekTo(pos)
+
+        val score2 = savedInstanceState.getInt("score")
+        score.setText("Points: " + score2)
+        points = savedInstanceState.getInt("score")
+
+    }
     private fun updateViews() {
         cards.forEachIndexed { index, card ->
             val button = buttons[index]
