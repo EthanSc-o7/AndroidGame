@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.content.DialogInterface
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -16,6 +17,7 @@ import com.example.onemoretime.R.drawable.*
 private const val Tag = "matching"
 class matching14 : AppCompatActivity() {
 
+    private lateinit var music: MediaPlayer
     private lateinit var buttons: List<ImageButton>
     private lateinit var cards: List<MemoryCard>
     private var indexOfSingleSelectedCard: Int? = null
@@ -35,6 +37,10 @@ class matching14 : AppCompatActivity() {
         val images = mutableListOf(possibleImages.get(0), possibleImages.get(1),possibleImages.get(2), possibleImages.get(3),
             possibleImages.get(4), possibleImages.get(5),possibleImages.get(6)
         )
+        
+        music = MediaPlayer.create(this, R.raw.music)
+        music.isLooping = true
+        music.start()
 
 
         // Add each image twice so we can create pairs
@@ -180,6 +186,11 @@ class matching14 : AppCompatActivity() {
 
             }
         }
+    }
+    
+    override fun onDestroy() {
+        super.onDestroy()
+        music.stop()
     }
 
 
