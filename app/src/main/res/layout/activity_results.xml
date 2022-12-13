@@ -15,7 +15,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -26,22 +26,22 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="172dp"
         android:text=" Game Over"
         android:textColor="#F4EFEF"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/scoreLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.052" />
 
     <TextView
         android:id="@+id/scoreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="344dp"
+        android:layout_marginTop="356dp"
         android:text="100"
-        android:textColor="#FFFFFF"
+        android:textColor="#DFC413"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -53,23 +53,65 @@
         android:layout_width="253dp"
         android:layout_height="57dp"
         android:text=" High Score : 10"
-        android:textColor="#FFFFFF"
+        android:textColor="#F3EA4B"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.718" />
+        app:layout_constraintVertical_bias="0.646" />
 
     <ImageButton
         android:id="@+id/imageButton9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="152dp"
         android:backgroundTint="#0AFFFFFF"
         android:foregroundTint="#0AFFFFFF"
         app:layout_constraintTop_toBottomOf="@+id/highScoreLabel"
         app:srcCompat="@drawable/mainmenu"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="2dp" />
+
+    <TextView
+        android:id="@+id/nameScore"
+        android:layout_width="165dp"
+        android:layout_height="36dp"
+        android:text="#1 Luigi : 50"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#113908"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highScoreLabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/nameScore2"
+        android:layout_width="166dp"
+        android:layout_height="32dp"
+        android:text="#2 Mario : 0"
+        android:textAlignment="center"
+        android:textColor="#BA0505"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameScore" />
+
+    <TextView
+        android:id="@+id/nameScore3"
+        android:layout_width="159dp"
+        android:layout_height="29dp"
+        android:text="#3 Peach : 0"
+        android:textAlignment="center"
+        android:textColor="#F16B6B"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameScore2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

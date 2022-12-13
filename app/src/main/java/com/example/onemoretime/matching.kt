@@ -19,7 +19,7 @@ class matching : AppCompatActivity() {
     private lateinit var buttons: List<ImageButton>
     private lateinit var cards: List<MemoryCard>
     private var indexOfSingleSelectedCard: Int? = null
-    private var points = 0
+    private var points =0
     private var correctpairs = 0
     private lateinit var score: TextView
     private var name = ""
@@ -77,7 +77,8 @@ class matching : AppCompatActivity() {
         findViewById<Button>(R.id.exitGame).setOnClickListener {
             finish()
             val intent = Intent(this, Results::class.java)
-            intent.putExtra("Score", points)
+            intent.putExtra("SCORE", points)
+            intent.putExtra("NAME", name)
             startActivity(intent)
         }
 
