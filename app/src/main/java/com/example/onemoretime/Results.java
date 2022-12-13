@@ -47,10 +47,13 @@ public class Results extends AppCompatActivity {
         nameScore1.setText("#1 LUIGI : " + luigiScore);
 
         if(score > highScore){
-            highScoreLabel.setText("High Score : " + score );
+
             luigiScore = score + 1;
+            highScoreLabel.setText("High Score : " + luigiScore );
 
 
+
+            nameScore1.setText("#1 LUIGI : " + luigiScore);
             nameScore2.setText("#2 "+ name + " : " + score);
             String oldName = secondPlace;
             nameScore3.setText("#3 "+ oldName + " : " + score1);
@@ -64,7 +67,7 @@ public class Results extends AppCompatActivity {
             editor.putInt("HIGH_SCORE" , score);
             editor.commit();
         }
-        else if(score > score1){
+        else if(score >= score1){
             nameScore2.setText("#2 "+ name + " : " + score);
             String oldName = secondPlace;
             nameScore3.setText("#3 "+ oldName + " : " + score1);
@@ -75,8 +78,8 @@ public class Results extends AppCompatActivity {
             editor.commit();
 
         }
-        else if(score > score2 && score < score1){
-            nameScore2.setText(secondPlace + " : " + score1);
+        else if(score >= score2 && score < score1){
+            nameScore2.setText("#2 " + secondPlace + " : " + score1);
             nameScore3.setText("#3 " + name + " : " + score);
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("THIRD_SCORE", score);

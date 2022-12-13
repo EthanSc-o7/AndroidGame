@@ -24,15 +24,12 @@
         android:id="@+id/playGame"
         android:layout_width="556dp"
         android:layout_height="57dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="10dp"
         android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/font" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/font"
+        tools:layout_editor_absoluteY="16dp" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -60,6 +57,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.959" />
+
+    <Spinner
+        android:id="@+id/cards"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="254dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Select Number Of Cards"
+        android:textColor="#050505"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/cards"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playGame"
+        app:layout_constraintVertical_bias="0.137" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
