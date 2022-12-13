@@ -4,6 +4,8 @@ package com.example.onemoretime
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.content.DialogInterface
+import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -12,20 +14,21 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.onemoretime.R.drawable.*
 
 
-private const val Tag = "Game"
-class Game : AppCompatActivity() {
+private const val Tag = "matching"
+class matching : AppCompatActivity() {
 
+    private lateinit var music: MediaPlayer
     private lateinit var buttons: List<ImageButton>
     private lateinit var cards: List<MemoryCard>
     private var indexOfSingleSelectedCard: Int? = null
-    private var points = 0
+    private var points =0
     private var correctpairs = 0
     private lateinit var score: TextView
     private var name = ""
     private var clicked = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game)
+        setContentView(R.layout.activity_matching)
 
         val possibleImages = mutableListOf(cloud, fireflower, luigi, mario, mushroom, star)
         possibleImages.shuffle()
@@ -33,6 +36,9 @@ class Game : AppCompatActivity() {
         val images = mutableListOf(possibleImages.get(0), possibleImages.get(1),
             possibleImages.get(2),possibleImages.get(3))
 
+        music = MediaPlayer.create(this, R.raw.music)
+        music.isLooping = true
+        music.start()
 
         // Add each image twice so we can create pairs
         images.addAll(images)
@@ -74,7 +80,11 @@ class Game : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.exitGame).setOnClickListener {
-            //This is where we add code to change to main menu
+            finish()
+            val intent = Intent(this, Results::class.java)
+            intent.putExtra("SCORE", points)
+            intent.putExtra("NAME", name)
+            startActivity(intent)
         }
 
 
@@ -99,7 +109,24 @@ class Game : AppCompatActivity() {
             button.setImageResource(if (card.isFaceUp) card.identifier else R.drawable.cardback)
         }
     }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("position", music.getCurrentPosition())
+        outState.putInt("score", points)
+        music.pause()
+        super.onSaveInstanceState(outState)
+    }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        val pos = savedInstanceState.getInt("position")
+        music.seekTo(pos)
+
+        val score2 = savedInstanceState.getInt("score")
+        score.setText("Points: " + score2)
+        points = savedInstanceState.getInt("score")
+
+    }
     private fun updateModels(position: Int) {
         val card = cards[position]
         // Error checking:
@@ -137,7 +164,10 @@ class Game : AppCompatActivity() {
         }
     }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+        music.stop()
+    }
 
 
     private fun checkForMatch(position1: Int, position2: Int) {

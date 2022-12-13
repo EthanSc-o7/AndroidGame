@@ -16,9 +16,91 @@
         android:theme="@style/Theme.OneMoreTime"
         tools:targetApi="31">
         <activity
-            android:name=".testGame"
+            android:name=".matching20"
+            android:exported="false"
             android:parentActivityName=".MainActivity"
-            android:exported="false">
+            android:screenOrientation="sensor">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".matching18"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensor">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".matching16"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensor">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".matching14"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensor">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".matching12"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensor">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".matching10"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensor">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".matching6"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensor">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".matching3"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensor">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Results"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensor">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".matching"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensor">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -26,7 +108,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-
             android:screenOrientation="sensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,7 +119,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
     </application>
 
 </manifest>
